@@ -1,0 +1,409 @@
+  :root{
+    --navy: #0E1626;
+    --navy-2: #131E33;
+    --wood: #C1712F;
+    --wood-bright: #E08D45;
+    --teal: #4CA69B;
+    --chalk: #ECE6D8;
+    --chalk-dim: #B9B2A0;
+    --line: rgba(236,230,216,0.14);
+    --court-line: rgba(236,230,216,0.08);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--navy);
+    color: var(--chalk);
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--wood-bright); outline-offset: 3px; }
+
+  .display{
+    font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 700px 500px at 82% 12%, rgba(193,113,47,0.16), transparent 60%),
+      var(--navy);
+  }
+
+  .court-lines{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  .hero-inner{
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker{
+    font-size: 0.95rem;
+    color: var(--chalk-dim);
+    margin: 0 0 18px;
+    max-width: 30ch;
+  }
+
+  .hero-kicker .tag{
+    color: var(--wood-bright);
+  }
+
+  h1.name{
+    font-size: clamp(3.4rem, 11vw, 7.2rem);
+    line-height: 0.94;
+    margin: 0;
+    color: var(--chalk);
+  }
+
+  h1.name span{
+    display:block;
+  }
+
+  h1.name .last{
+    color: var(--wood-bright);
+  }
+
+  .hero-tagline{
+    margin: 28px 0 0;
+    max-width: 46ch;
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    color: var(--chalk);
+    font-weight: 500;
+  }
+
+  .hero-meta{
+    margin-top: 40px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 0.92rem;
+    color: var(--chalk-dim);
+  }
+
+  .hero-meta span{
+    padding-left: 16px;
+    border-left: 2px solid var(--wood);
+  }
+
+  .scroll-cue{
+    position: absolute;
+    bottom: 36px;
+    left: 28px;
+    font-size: 0.82rem;
+    color: var(--chalk-dim);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .scroll-cue::after{
+    content: "";
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(var(--chalk-dim), transparent);
+  }
+
+  /* ---------------- SECTION SHELL ---------------- */
+  section{
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head{
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 8px;
+    margin-bottom: 44px;
+  }
+
+  h2{
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    margin: 0;
+    color: var(--chalk);
+  }
+
+  .section-sub{
+    color: var(--chalk-dim);
+    max-width: 58ch;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* ---------------- ABOUT ---------------- */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .about-copy p{
+    font-size: 1.1rem;
+    max-width: 56ch;
+    color: var(--chalk);
+  }
+
+  .about-copy p + p{ margin-top: 18px; }
+
+  .stat-panel{
+    background: var(--navy-2);
+    border: 1px solid var(--line);
+    padding: 26px 24px;
+  }
+
+  .stat-panel .stat-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat-panel .stat-row:last-child{ border-bottom: none; }
+
+  .stat-panel .stat-label{
+    color: var(--chalk-dim);
+    font-size: 0.88rem;
+  }
+
+  .stat-panel .stat-value{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--wood-bright);
+  }
+
+  /* ---------------- INTERESTS (roster) ---------------- */
+  .roster{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .roster-item{
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .roster-item:last-child{
+    border-bottom: 1px solid var(--line);
+  }
+
+  .roster-num{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--teal);
+    opacity: 0.85;
+  }
+
+  .roster-body h3{
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--chalk);
+  }
+
+  .roster-body p{
+    margin: 0;
+    color: var(--chalk-dim);
+    max-width: 60ch;
+  }
+
+  /* ---------------- SKILLS (box score) ---------------- */
+  .boxscore{
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .boxscore th{
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--chalk-dim);
+    padding: 0 0 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .boxscore td{
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .boxscore tr:last-child td{ border-bottom: none; }
+
+  .boxscore .cat{
+    font-weight: 600;
+    color: var(--wood-bright);
+    width: 220px;
+    padding-right: 20px;
+  }
+
+  .chip-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip{
+    border: 1px solid var(--line);
+    padding: 5px 12px;
+    font-size: 0.86rem;
+    color: var(--chalk);
+    background: var(--navy-2);
+  }
+
+  /* ---------------- EXPERIENCE ---------------- */
+  .exp-list{
+  position: relative;
+  padding-left: 32px;
+}
+
+.exp-list::before{
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--line);
+}
+
+.exp-item{
+  position: relative;
+  padding: 0 0 44px;
+}
+
+.exp-item:last-child{ padding-bottom: 0; }
+
+.exp-item::before{
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--wood-bright);
+}
+
+.exp-top{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+}
+
+.exp-role{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  color: var(--chalk);
+  letter-spacing: 0.01em;
+}
+
+.exp-org{
+  color: var(--teal);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.exp-blurb{
+  margin: 10px 0 14px;
+  max-width: 56ch;
+  color: var(--chalk-dim);
+  font-size: 0.98rem;
+}
+
+  /* ---------------- CONTACT / FOOTER ---------------- */
+  footer{
+    padding: 90px 0 60px;
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-lead{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    max-width: 14ch;
+    margin: 0 0 40px;
+    color: var(--chalk);
+  }
+
+  .contact-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .contact-links a{
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 14px 22px;
+    font-size: 0.98rem;
+    font-weight: 500;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+
+  .contact-links a:hover{
+    border-color: var(--wood);
+    background: var(--navy-2);
+  }
+
+  .contact-links a .k{
+    color: var(--chalk-dim);
+    font-size: 0.82rem;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .foot-note{
+    margin-top: 60px;
+    color: var(--chalk-dim);
+    font-size: 0.85rem;
+  }
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (max-width: 720px){
+    .about-grid{ grid-template-columns: 1fr; gap: 36px; }
+    .roster-item{ grid-template-columns: 56px 1fr; gap: 16px; }
+    .boxscore .cat{ width: auto; display: block; padding-bottom: 8px; }
+    .boxscore, .boxscore tbody, .boxscore tr, .boxscore td{ display: block; width: 100%; }
+    .boxscore th{ display: none; }
+    .boxscore td{ border-bottom: none; padding: 4px 0; }
+    .boxscore tr{ padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .exp-item{ grid-template-columns: 1fr; }
+  }
